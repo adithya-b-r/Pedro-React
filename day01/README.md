@@ -1,2 +1,2 @@
 # Module 1 - 2
- ## Learnt JSX, Components, Props.
+ ### Learnt JSX, Components, Props.
