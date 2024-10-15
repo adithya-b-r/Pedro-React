@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.addTask, .listContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.addTask{
+  width: 100%;
+  background-color: royalblue;
+  height: 20vh;
+}
+
+.listContainer{
+  width: 100%;
+  background-color: lavender;
+  height: 10vh;
+}
