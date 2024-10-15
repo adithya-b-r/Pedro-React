@@ -33,11 +33,7 @@ Generates random excuses based on different categories like party, family, offic
 
 ## How to Run
 
-1. Clone the repository:
-
-   ```bash
-   git clone <repository-url>
-   ```
+1. Clone the repository.
 
 2. Install dependencies:
 
