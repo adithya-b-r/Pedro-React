@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# React State Management with useState Hook
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project demonstrates several examples of state management using the `useState` hook in React.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **useState Hook**: Manages state in functional components.
+- Examples include:
+  - Counter to increase, decrease, and reset values.
+  - Dynamic input field handling.
+  - Toggling text visibility.
+  - Switching text color.
 
-### `npm start`
+## Key Concepts
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 1. Counter Example
+Manages a counter that can be increased, decreased, or reset using buttons.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```jsx
+const [counter, setCounter] = useState(0);
 
-### `npm test`
+return (
+  <div className="App">
+    <button onClick={() => setCounter(counter + 1)}>Increase</button>
+    <button onClick={() => setCounter(counter - 1)}>Decrease</button>
+    <button onClick={() => setCounter(0)}>Set to Zero</button>
+    <h1>{counter}</h1>
+  </div>
+);
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 2. Input Field Example
+Captures user input and displays it dynamically as it is typed.
 
-### `npm run build`
+```jsx
+const [inputValue, setinputValue] = useState("");
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+const handleInputChange = (event) => {
+  setinputValue(event.target.value);
+}
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+return (
+  <div className="App">
+    <input type="text" value={inputValue} onChange={handleInputChange} />
+    <p>{inputValue}</p>
+  </div>
+);
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 3. Show/Hide Text Example
+Toggles text visibility using a button.
 
-### `npm run eject`
+```jsx
+const [showText, setShowText] = useState(false);
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+return (
+  <div className="App">
+    <button onClick={() => setShowText(!showText)}>Show/Hide</button>
+    {showText && <h1>Hi, My name is Adithya</h1>}
+  </div>
+);
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 4. Toggle Text Color Example
+Changes the text color between black and red on button click.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```jsx
+const [textColor, setTextColor] = useState("black");
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+return (
+  <div className="App">
+    <button onClick={() => setTextColor(textColor === "black" ? "red" : "black")}>Toggle Color</button>
+    <h1 style={{color: textColor}}>Hi, My name is Adithya</h1>
+  </div>
+);
+```
 
-## Learn More
+## How to Run
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Clone the repository.
+2. Install dependencies by running:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```bash
+   npm install
+   ```
 
-### Code Splitting
+3. Start the React app:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   ```bash
+   npm start
+   ```

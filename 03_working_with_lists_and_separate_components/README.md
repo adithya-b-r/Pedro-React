@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# React User List with Component Mapping
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project demonstrates how to render a list of users using the **map** function and **props** in React.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Array Mapping**: Renders a list of users from an array using the `map()` function.
+- **Reusable Component**: The `User` component is used to display individual user details.
+- **Props**: Passes user data (id, name, age) to the `User` component via props.
+- **Keys**: Uses a unique `key` prop to avoid console warnings during list rendering.
 
-### `npm start`
+## Key Concepts
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Array Mapping
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The app maps through the `users` array and dynamically generates `User` components:
 
-### `npm test`
+```jsx
+const users = [
+  { id: 1, name: "Adithya", age: 20 },
+  { id: 2, name: "Doraemon", age: 12 },
+  { id: 3, name: "Shinchan", age: 5 }
+];
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+return (
+  <div className="App">
+    {users.map((user, key) => {
+      return <User key={key} id={user.id} name={user.name} age={user.age} />
+    })}
+  </div>
+);
+```
 
-### `npm run build`
+### `User` Component
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The `User` component takes in three props: `id`, `name`, and `age`, and displays them:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```jsx
+export const User = (props) => {
+  return (
+    <div>
+      UserID: {props.id}, Name: {props.name}, Age: {props.age}
+    </div>
+  );
+}
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## How to Run
 
-### `npm run eject`
+1. Clone the repository.
+2. Install dependencies by running:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   npm install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Start the React app:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```bash
+   npm start
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Additional Info
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- You can modify the `users` array to add or remove users and see the list dynamically update.
+- Make sure to provide a unique `key` for each item when rendering lists in React.

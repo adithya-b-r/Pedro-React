@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Conditional Rendering and Inline Styling in React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project demonstrates how to use **conditional rendering** and **inline styling** in React, along with some basic CSS integration.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Conditional Rendering**: Uses a ternary operator and logical `&&` to render elements based on conditions.
+- **Inline Styling**: Demonstrates how to apply styles dynamically using JavaScript expressions within JSX.
+- **Basic Arithmetic Operations**: Performs inline arithmetic calculations within JSX.
 
-### `npm start`
+## Key Concepts
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Conditional Rendering
+- The app checks if a user is eligible to drive based on age:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  ```jsx
+  {age >= 18 ? <h1>You can drive</h1> : <h1>Wait for {18 - age} more years.</h1>}
+  ```
 
-### `npm test`
+- A button is conditionally displayed if `isGreen` is set to `true`:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  ```jsx
+  {isGreen && <button>This is a button</button>}
+  ```
 
-### `npm run build`
+### Inline Styling
+- The app uses inline styling to change the color of a text dynamically based on the value of `isGreen`:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  ```jsx
+  <h1 style={{color: isGreen ? "green" : "red"}}>This text has some color</h1>
+  ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## How to Run
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the repository.
+2. Install dependencies by running:
 
-### `npm run eject`
+   ```bash
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Start the React app:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```bash
+   npm start
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Additional Info
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- You can modify the `age` or `isGreen` variables to see how the UI changes.
