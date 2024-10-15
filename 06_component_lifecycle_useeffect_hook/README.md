@@ -1,6 +1,6 @@
-# React Component Lifecycle Demo
+# React Component Lifecycle Demo with Strict Mode
 
-This project demonstrates React's component lifecycle stages—**mounting**, **updating**, and **unmounting**—using the `useEffect` hook. It also showcases the use of state and effects in functional components.
+This project demonstrates React's component lifecycle stages—**mounting**, **updating**, and **unmounting**—using the `useEffect` hook. It also showcases **React Strict Mode**, which helps in identifying potential problems in an application by running certain lifecycle methods more than once in development mode.
 
 ## Features
 
@@ -9,10 +9,29 @@ This project demonstrates React's component lifecycle stages—**mounting**, **u
   - **Mounting**: The component appears on the screen.
   - **Updating**: The component updates the UI when the state changes.
   - **Unmounting**: The component is removed from the DOM.
+- **React Strict Mode**: Wraps components to highlight potential issues during development.
 
 ## Key Concepts
 
-### 1. App Component
+### 1. Strict Mode
+
+**React Strict Mode** is a tool for highlighting potential problems in your React application. It does not render any visible UI but helps in writing better React code by:
+- Identifying unsafe lifecycles.
+- Warning about deprecated APIs.
+- Running `useEffect` and other lifecycle methods twice during development to help detect issues.
+
+Strict Mode is enabled by default when wrapping your app with `<React.StrictMode>` in `index.js`:
+
+```jsx
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+```
+
+### 2. App Component
 
 - The `App` component controls whether the `Text` component is shown or hidden, triggering the **mounting** and **unmounting** lifecycle events.
 
@@ -29,7 +48,7 @@ function App() {
 }
 ```
 
-### 2. Text Component
+### 3. Text Component
 
 - The `Text` component demonstrates **updating** and **unmounting** stages. It listens for changes in input and logs when the component is mounted, updated, or unmounted.
 
@@ -89,5 +108,5 @@ export const Text = () => {
 
 ## Additional Info
 
+- **Strict Mode** will invoke certain lifecycle methods (like `useEffect`) more than once in development mode, helping identify potential problems.
 - The console logs the different lifecycle stages—mounting, updating, and unmounting—while interacting with the app.
-- The `useEffect` hook plays a crucial role in managing side effects in functional components.
