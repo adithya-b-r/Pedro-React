@@ -24,6 +24,135 @@ This project demonstrates how to use React's Context API along with React Router
   └── index.js                  # Entry point of the application
 ```
 
+## Code
+
+### `App.js`
+
+```javascript
+import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Home } from './pages/Home';
+import { Profile } from './pages/Profile';
+import { Contact } from './pages/Contact';
+import { Navbar } from './pages/Navbar';
+import { useState, createContext } from 'react';
+
+export const AppContext = createContext();
+
+function App() {
+  const [username, setUsername] = useState('Adithya');
+
+  return (
+    <div className="App">
+      <AppContext.Provider value={{ username, setUsername }}>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="" element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<h1>PAGE NOT FOUND</h1>} />
+          </Routes>
+        </Router>
+      </AppContext.Provider>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### `ChangeProfile.js`
+
+```javascript
+import { useState } from 'react';
+import { useContext } from 'react';
+import { AppContext } from '../App';
+
+export const ChangeProfile = () => {
+  const { setUsername } = useContext(AppContext);
+  const [newUsername, setNewUsername] = useState("");
+
+  return (
+    <div>
+      <input onChange={(event) => setNewUsername(event.target.value)} />
+      <button onClick={() => setUsername(newUsername)}>Change Username</button>
+    </div>
+  );
+};
+```
+
+### `Home.js`
+
+```javascript
+import { useContext } from 'react';
+import { AppContext } from '../App';
+
+export const Home = () => {
+  const { username } = useContext(AppContext);
+  return <h1>THIS IS THE HOME PAGE AND USERNAME: {username}</h1>;
+};
+```
+
+### `Profile.js`
+
+```javascript
+import { ChangeProfile } from '../components/ChangeProfile';
+import { useContext } from 'react';
+import { AppContext } from '../App';
+
+export const Profile = () => {
+  const { username } = useContext(AppContext);
+
+  return (
+    <div>
+      PROFILE, User is: {username}
+      <ChangeProfile />
+    </div>
+  );
+};
+```
+
+### `Contact.js`
+
+```javascript
+export const Contact = () => {
+  return <h1>THIS IS THE CONTACT PAGE</h1>;
+};
+```
+
+### `Navbar.js`
+
+```javascript
+import { Link } from 'react-router-dom';
+
+export const Navbar = () => {
+  return (
+    <div>
+      <Link to="/">Home</Link>
+      <Link to="/profile">Profile</Link>
+      <Link to="/contact">Contact</Link>
+    </div>
+  );
+};
+```
+
+### `index.js`
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import './App.css';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+```
+
 ## How to Run
 
 1. **Clone the repository.**
@@ -61,9 +190,3 @@ This project demonstrates how to use React's Context API along with React Router
 - **React**: JavaScript library for building user interfaces.
 - **React Router DOM**: Enables routing and navigation between different components.
 - **Context API**: Manages global state (`username`).
-
-## Example
-
-1. Open the app.
-2. Navigate to the **Profile** page and change the `username`.
-3. Go back to the **Home** page and notice the updated username displayed.
