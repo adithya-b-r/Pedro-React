@@ -16,10 +16,10 @@ password, and confirm password.
 
 ```
 /src
-  ├── /Components
-  │   └── Form.js
-  ├── App.js
-  └── App.css
+  /Components
+    Form.js
+  App.js
+  App.css
 ```
 
 ## Technologies Used
