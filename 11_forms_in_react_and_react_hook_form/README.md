@@ -1,7 +1,9 @@
 ```markdown
 # React Form Validation with Yup and React Hook Form
 
-This is a simple React application demonstrating form validation using `react-hook-form`, `yup`, and `@hookform/resolvers/yup`. The form collects user information like full name, email, age, password, and confirm password.
+This is a simple React application demonstrating form validation using `react-hook-form`, `yup`,
+and `@hookform/resolvers/yup`. The form collects user information like full name, email, age, 
+password, and confirm password.
 
 ## Features
 
