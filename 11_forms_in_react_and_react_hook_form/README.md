@@ -20,6 +20,7 @@ password, and confirm password.
     Form.js
   App.js
   App.css
+  index.js
 ```
 
 ## Technologies Used
