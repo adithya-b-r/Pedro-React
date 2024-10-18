@@ -17,9 +17,9 @@ This project demonstrates the integration of **Redux** with **React Router** in 
   │   ├── Home.tsx
   │   ├── Login.tsx
   │   └── Contact.tsx
-  ├── /store
-  │   └── store.tsx
+  ├── store.tsx
   ├── App.tsx
+  ├── index.tsx
   └── App.css
 ```
 
